@@ -1,24 +1,32 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  for(i=0; i < array.length; i++){
+    for (j=i+1; j < array.length; j++) {
+      if (array[i] + array[j] === target) {
+        return true
+      }
+    }
+  }
+  return false
 }
 
 /* 
-  Write the Big O time complexity of your function here
+  Big O time complexity = 0(n2)
 */
 
 /* 
-  Add your pseudocode here
+  Build two loops, one where the counter begins at the index of the first item in the array, 
+  and the second where the counter begins at the index of the second item in the array
+  Then, build an if statement that checks if the sum of any two numbers in the array equals the target
 */
 
-/*
-  Add written explanation of your solution here
-*/
-
-// You can run `node index.js` to view these console logs
 if (require.main === module) {
-  // add your own custom tests in here
   console.log("Expecting: true");
   console.log("=>", hasTargetSum([3, 8, 12, 4, 11, 7], 10));
+
+  console.log("");
+
+  console.log("Expecting: false");
+  console.log("=>", hasTargetSum([3], 10));
 
   console.log("");
 
